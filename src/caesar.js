@@ -10,10 +10,10 @@ function caesar(input = null, shift = 0, encode = true) {
 //initial check for legitimacy of argument values
   if (input === null || shift === 0 || Math.abs(shift)>25) {
     return false
-  }
+  };
 //account for encode/decode and convert shift to right shift
-  if (encode === false) { shift *= -1 }
-  if (shift < 0) { shift = 26 + shift }
+  if (encode === false) { shift *= -1 };
+  if (shift < 0) { shift = 26 + shift };
 //convert to lowerCase, separate by letter. for each: replace with unicode equivalent, modify if unicode equivalent of [a-z] by shift value (mod function handles wrapping at edge of alphabet), convert back to character and push. Join once complete. 
   return input.toLowerCase().split("").map((letter) => letter.charCodeAt(0)).map((item) => {
     if (item > 96 && item < 123) {
