@@ -12,14 +12,14 @@ const polybiusModule = (function () {
 //generate sorted alphabet array
   let aThroughZ = [...Array(26)].map((e, i) => (i + 10).toString(36));
 //generate polybiusSquare Coordinate array
-  let polybiusSquare = []
+  let polybiusSquare = [];
   for (let i = 1; i < 6; i++) {
     for (let j = 1; j < 6; j++) {
       //enable both I and J from the Polybius Square to return 42
       if (j === 4 && i === 2) { polybiusSquare.push(`${j}${i}`) };
       polybiusSquare.push(`${j}${i}`);
-    }
-  }
+    };
+  };
  //initialize PolybiusSquare Coordinate Conversion Object
   let conversionObject = { " ": " " };
   let i = 0;
@@ -37,8 +37,8 @@ const polybiusModule = (function () {
     polybiusSquare.forEach((letter) => { conversionObject[letter] = aThroughZ[i]; i++; });
 //convert to LowerCase, split(" ") by space, map every two characters, map value using conversionObject to translate message, join("") (this joins each pair of characters), join(" ") (this joins each array of (now joined) pairs of characters which were previously separated by a space)
     return input.toLowerCase().split(" ").map((entry) => entry.match(/(..)/g)).map((word) => word.map((duo) => conversionObject[duo]).join("")).join(" ");
-  }
-}
+  };
+};
 
   return {
     polybius,
